@@ -12,9 +12,10 @@ We represent a collision by a tuple of a real number, an integer, and another re
 # Goal
 Our goal is to enumerate the resulting collisions in a chronological order. Ties between collisions happening at the same time must be broken from left to right. For example for i < i′, if at time t, object i collides with i + 1 at location x, and i′ collides with i′ + 1 at location x′, then the collision (t, i, x) must precede (t, i′, x′). <br/> 
 
-# ASSUMPTION: 
+# Assumption:
 Input is such that no more than 2 objects collide at the same time and the same place.<br/> 
  
+# Specifications:
 
 1. M[]: a list of positive floats, where M[i] is the mass of the i’th object, <br/> 
 2. X[]: a sorted list of floats, where x[i] is the initial position of the i’th object,<br/> 
@@ -27,6 +28,10 @@ listCollisions(M,X,V,m,T)
 returns a list of collisions in chronological order that ends as soon as the first m collisions happen or time reaches T (whichever earlier). <br/> 
 If the input results in fewer than m collisions and the last collision happens before time T, the list returned must contain all collisions in chronological order.
 
+# Time Complexity:
+* We achieve this in O(n + mlog(n)) where O(n) is for building the Data Structure (Heap) 
+* Then O(log(n)) for processing each collsion ans we will process atmost 'm' collisions
+ 
 
 # Example Test Cases
 listCollisions([1.0, 5.0], [1.0, 2.0], [3.0, 5.0], 100, 100.0) <br/> 
