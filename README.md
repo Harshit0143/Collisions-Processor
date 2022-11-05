@@ -5,14 +5,14 @@ Consider a set of 'n' point objects located in 1D space where for i ∈ {0, . . 
 
 Given this initial conditions, the objects undergo several collisions over time and eventually move away from one another.<br/> 
 
-# 
+# Physics
 Assume that each collision is elastic, and therefore, kinetic energy is conserved too. Also, note that no two objects can ever “cross” each other, and therefore, collisions can happen only between objects i and i + 1, for some i ∈ {0, . . . , n − 2}.<br/> 
 # Tie-Breaking
 We represent a collision by a tuple of a real number, an integer, and another real number. The tuple (t, i, x) represents a collision happening at time t between objects i and i + 1 at location x.<br/> 
-
+# Goal
 Our goal is to enumerate the resulting collisions in a chronological order. Ties between collisions happening at the same time must be broken from left to right. For example for i < i′, if at time t, object i collides with i + 1 at location x, and i′ collides with i′ + 1 at location x′, then the collision (t, i, x) must precede (t, i′, x′). <br/> 
 
-#ASSUMPTION: 
+# ASSUMPTION: 
 Input is such that no more than 2 objects collide at the same time and the same place.<br/> 
  
 
@@ -22,6 +22,8 @@ Input is such that no more than 2 objects collide at the same time and the same 
 4. m: a non-negative integer,<br/> 
 5. T: a non-negative float,<br/> 
 
+
+listCollisions(M,X,V,m,T)
 returns a list of collisions in chronological order that ends as soon as the first m collisions happen or time reaches T (whichever earlier). <br/> 
 If the input results in fewer than m collisions and the last collision happens before time T, the list returned must contain all collisions in chronological order.
 
